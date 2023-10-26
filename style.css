@@ -1,3 +1,14 @@
+:root {
+  --hue: 194;
+  --bg-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsl(var(--hue), 40%, 98%);
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+  --controls-color: hsl(var(--hue), 40%, 98%);
+
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
 * {
  margin: 0;
  padding: 0;
@@ -5,5 +16,79 @@
 }
 
 body {
+  background-color: var(--bg-color);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+    
+  color: var(--text-color);
   font-family: "Roboto", sans-serif;
+}
+
+#app {
+  display: grid;
+  justify-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+#timer {
+  font-size: 9.6rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+
+#controls {
+  background-color: var(--controls-bg-color);
+  border-radius: 999rem;
+
+  padding: 2.2rem 4rem;
+  gap: 1.6rem;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+
+  color: var(--controls-color);
+  font-size: 6.4rem;
+  cursor: pointer;
+}
+
+.activate-button {
+  color: var(--primary-color);
+}
+
+/* Controls - removendo botões da tela */
+/* html:not(classe) - Pega o HTML e usa a pseudo-class para observar se não existe uma classe especifica no HTML */
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+  display: none;
+}
+
+/* Toggle Mode - Theme Light */
+html.light {  
+  --bg-color: hsl(var(--hue), 40%, 98%);
+  --text-color: hsl(var(--hue), 5%, 7%);
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
+
+#toggle-mode {
+  position: absolute;
+  top: 3.2rem;
+  right: 3.2rem;
+
+  line-height: 0;
+  font-size: 3.2rem;
+  color: var(--text-color);
 }
