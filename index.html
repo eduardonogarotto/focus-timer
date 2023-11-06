@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="light">
+<html lang="pt-br" class="">
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="./style.css" />
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script type="module" src="./src/main.js" defer></script>
 
     <title>Focus Timer - Aplicação Pomodoro</title>
   </head>
   <body>
     <div id="app">
       <button id="toggle-mode">
+        <span class="sr-only">Ativar Light Mode.</span>
         <i class="ph-bold ph-sun"></i>
         <i class="ph-bold ph-moon"></i>
       </button>
@@ -33,12 +35,24 @@
       </section>
 
       <section id="controls" class="flex">
-        <button class="ph ph-play-circle activate-button"></button>
-        <button class="ph ph-pause-circle activate-button"></button>
-        <button class="ph ph-timer"></button>
-        <button class="ph ph-stop-circle"></button>
-        <button class="ph ph-speaker-none"></button>
-        <button class="ph ph-speaker-high activate-button"></button>
+        <button class="ph ph-play-circle activate-button ">
+          <span class="sr-only">Iniciar cronômetro</span>
+        </button>
+        <button class="ph ph-pause-circle activate-button">
+          <span class="sr-only">Pausar cronômetro</span>
+        </button>
+        <button class="ph ph-timer">
+          <span class="sr-only">Ajustar cronômetro</span>
+        </button>
+        <button class="ph ph-stop-circle">
+          <span class="sr-only">Reiniciar cronômetro</span>
+        </button>
+        <button class="ph ph-speaker-none">
+          <span class="sr-only">Iniciar música</span>
+        </button>
+        <button class="ph ph-speaker-high activate-button">
+          <span class="sr-only">Parar música</span>
+        </button>
       </section>
     </div>
   </body>
